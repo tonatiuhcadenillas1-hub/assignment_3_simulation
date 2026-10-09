@@ -1,0 +1,5 @@
+experimento,tipo,numOperarios,numMesas,factorDemanda,tipoEstudio,semilla,replicas,corridas,duracion_min
+Escenario_Base,Simulation,3,1,1.0,0,Fija (1),1,1,480
+Escenario_Optimizado,Simulation,2,2,1.0,0,Fija (1),1,1,480
+Variacion_Recursos,Parameter Variation,2 a 4 (paso 1),1 a 3 (paso 1),1.0,1,Aleatoria,10,90,480
+Sensibilidad_Demanda,Parameter Variation,2,2,"0.8 / 1.0 / 1.2",2,Aleatoria,10,30,480

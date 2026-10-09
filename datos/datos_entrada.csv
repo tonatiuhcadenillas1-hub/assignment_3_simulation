@@ -1,0 +1,8 @@
+elemento,bloque_o_evento,expresion_anylogic,unidad,media,desv_est,cv,justificacion
+Tiempo entre llegadas,llegadaPlacas (Source),exponential((1.0 / 1.5) * factorDemanda),minutos,1.5 (factor 1),1.5,1.00,Llegadas independientes de muchas fuentes (proceso de Poisson)
+Tiempo de ensamblaje,Ensamblaje (Delay),"triangular(1, 2, 3)",minutos,2.0,0.41,0.20,Operacion manual sin datos historicos: minimo / moda / maximo
+Tiempo de prueba,Pruebas_Calidad (Service),"normal(0, Double.POSITIVE_INFINITY, 2.0, 0.5)",minutos,2.0,0.5,0.25,Protocolo estandarizado con variabilidad simetrica baja; truncada en 0
+Tipo de placa,llegadaPlacas (On exit),"uniform(0, 1) < 0.25 ? ""Alta"" : ""Baja""",-,p = 0.25,-,-,Variable de Bernoulli: mezcla de produccion
+Falla de mesa,falloMesaCada8h (Event),t = 240,minutos,-,-,-,Reduce en 1 la capacidad de Mesa_Pruebas
+Fin de reparacion,finReparacionMesa (Event),t = 255,minutos,-,-,-,Restablece la capacidad (15 min de reparacion)
+Horizonte,Experimentos,Stop at specified time = 480,minutos,-,-,-,Un turno de 8 horas (simulacion terminal)

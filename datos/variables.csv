@@ -1,0 +1,11 @@
+variable,agente,tipo,valor_inicial,se_actualiza_en,descripcion
+totalLlegadas,Main,int,0,llegadaPlacas.onExit,Placas generadas
+terminadas,Main,int,0,productoTerminado.onEnter,Placas que salen del sistema
+placasAlta,Main,int,0,llegadaPlacas.onExit,Placas de alta complejidad generadas
+tiempoTotalSistema,Main,double,0,productoTerminado.onEnter,Suma de tiempos en el sistema de las placas terminadas
+tiempoPromedioSistema,Main,double,0,productoTerminado.onEnter,tiempoTotalSistema / terminadas
+fallosMesa,Main,int,0,falloMesaCada8h,Numero de fallas de mesa
+mesaEnReparacion,Main,boolean,false,falloMesaCada8h / finReparacionMesa,Estado actual de la mesa
+histTiempoSistema,Main,HistogramData,-,productoTerminado.onEnter,Tiempo en el sistema de cada placa terminada (20 intervalos)
+tipoPlaca,Placa,String,"""Baja""",llegadaPlacas.onExit,Atributo: complejidad de la placa
+horaLlegada,Placa,double,0,llegadaPlacas.onExit,Atributo: instante de llegada (min)

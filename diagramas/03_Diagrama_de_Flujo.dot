@@ -1,0 +1,31 @@
+digraph G {
+  rankdir=LR; bgcolor=white; pad=0.3; nodesep=0.5; ranksep=0.45;
+  node [fontname="DejaVu Sans", fontsize=11, style="filled,rounded", shape=box, fillcolor="#DDEBF7", color="#2F5597"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#404040"];
+  labelloc=t; fontname="DejaVu Sans"; fontsize=15;
+  label="Diagrama de flujo del proceso - Modelo final (PA3)\n ";
+  src  [label="llegadaPlacas\n(Source)\nexponential((1.0/1.5)·factorDemanda)", shape=ellipse, fillcolor="#C6E0B4", color="#548235"];
+  ini  [label="inicioCiclo\n(TimeMeasureStart)"];
+  q1   [label="Cola_Ensamblaje\n(Queue)\nFIFO", fillcolor="#FFF2CC", color="#BF9000"];
+  sz   [label="tomarOperario\n(Seize)\n1 operario"];
+  dl   [label="Ensamblaje\n(Delay)\ntriangular(1, 2, 3) min"];
+  rl   [label="liberarOperario\n(Release)"];
+  q2   [label="Cola_Pruebas\n(Queue)\nFIFO", fillcolor="#FFF2CC", color="#BF9000"];
+  sv   [label="Pruebas_Calidad\n(Service)\nnormal(0, ∞, 2, 0.5) min"];
+  fin  [label="finCiclo\n(TimeMeasureEnd)"];
+  snk  [label="productoTerminado\n(Sink)\nhistTiempoSistema.add()", shape=ellipse, fillcolor="#F8CBAD", color="#C55A11"];
+  src->ini->q1->sz->dl->rl->q2->sv->fin->snk [weight=20];
+  op   [label="Operarios_Ensamblaje\n(ResourcePool)\ncapacidad = numOperarios", shape=box3d, style=filled, fillcolor="#E2EFDA", color="#548235"];
+  mesa [label="Mesa_Pruebas\n(ResourcePool)\ncapacidad = numMesas", shape=box3d, style=filled, fillcolor="#E2EFDA", color="#548235"];
+  op -> sz [style=dashed, label="asigna", color="#548235"];
+  rl -> op [style=dashed, label="devuelve", color="#548235"];
+  mesa -> sv [style=dashed, label="usa", color="#548235"];
+  ev1 [label="falloMesaCada8h\nt = 240 min\nnumMesas - 1", shape=cds, style=filled, fillcolor="#FCE4D6", color="#C55A11"];
+  ev2 [label="finReparacionMesa\nt = 255 min\nnumMesas", shape=cds, style=filled, fillcolor="#FCE4D6", color="#C55A11"];
+  ev3 [label="registrarResultados480\nt = 480 min\nescribe fila en CSV", shape=cds, style=filled, fillcolor="#EDEDED", color="#595959"];
+  ev1 -> mesa [style=dotted, color="#C55A11"];
+  ev2 -> mesa [style=dotted, color="#C55A11"];
+  {rank=same; sz; op;}
+  {rank=same; sv; mesa;}
+  {rank=same; snk; ev3;}
+}

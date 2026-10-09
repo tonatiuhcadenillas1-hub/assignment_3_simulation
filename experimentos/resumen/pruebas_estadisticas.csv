@@ -1,0 +1,22 @@
+prueba,indicador,comparacion,estadistico,p_valor,diferencia
+ANOVA 2 factores,pct_terminadas,C(operarios),1.262,0.2886,
+ANOVA 2 factores,pct_terminadas,C(mesas),1625.126,0.0,
+ANOVA 2 factores,pct_terminadas,C(operarios):C(mesas),2.072,0.0921,
+ANOVA 2 factores,tiempo_medio_sistema_min,C(operarios),0.082,0.9218,
+ANOVA 2 factores,tiempo_medio_sistema_min,C(mesas),650.85,0.0,
+ANOVA 2 factores,tiempo_medio_sistema_min,C(operarios):C(mesas),0.202,0.9366,
+t de Welch,pct_terminadas,3x1 vs 2x2,-31.235,0.0,-28.675
+t de Welch,tiempo_medio_sistema_min,3x1 vs 2x2,13.339,0.0,65.289
+t de Welch,pct_terminadas,2x3 vs 2x2,0.995,0.3339,0.282
+t de Welch,tiempo_medio_sistema_min,2x3 vs 2x2,-1.14,0.2698,-0.227
+t de Welch,pct_terminadas,3x2 vs 2x2,0.696,0.496,0.206
+t de Welch,tiempo_medio_sistema_min,3x2 vs 2x2,-0.292,0.7739,-0.057
+t de Welch,pct_terminadas,3x3 vs 2x2,3.041,0.0079,0.641
+t de Welch,tiempo_medio_sistema_min,3x3 vs 2x2,-7.098,0.0,-1.095
+t de Welch,pct_terminadas,4x2 vs 2x2,0.748,0.4644,0.192
+t de Welch,tiempo_medio_sistema_min,4x2 vs 2x2,-1.707,0.1088,-0.305
+t de Welch,pct_terminadas,4x3 vs 2x2,2.086,0.0516,0.499
+t de Welch,tiempo_medio_sistema_min,4x3 vs 2x2,-7.25,0.0,-1.119
+ANOVA 1 factor (demanda),tiempo_medio_sistema_min,0.8 / 1.0 / 1.2,13.616,0.0001,
+ANOVA 1 factor (demanda),pct_terminadas,0.8 / 1.0 / 1.2,0.309,0.7364,
+ANOVA 1 factor (demanda),wip,0.8 / 1.0 / 1.2,2.493,0.1015,

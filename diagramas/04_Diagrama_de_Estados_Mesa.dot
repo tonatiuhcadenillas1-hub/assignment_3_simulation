@@ -1,0 +1,13 @@
+digraph G {
+  rankdir=LR; bgcolor=white; pad=0.3; nodesep=0.8; ranksep=1.3;
+  labelloc=t; fontname="DejaVu Sans"; fontsize=14;
+  label="Diagrama de estados - Mesa_Pruebas (modelo final)\n ";
+  node [fontname="DejaVu Sans", fontsize=11, shape=box, style="filled,rounded", fillcolor="#DDEBF7", color="#2F5597"];
+  edge [fontname="DejaVu Sans", fontsize=10];
+  start [shape=circle, label="", width=0.2, style=filled, fillcolor=black];
+  op  [label="Operativa\n\nmesaEnReparacion = false\ncapacidad = numMesas"];
+  rep [label="En reparación\n\nmesaEnReparacion = true\ncapacidad = numMesas - 1", fillcolor="#FCE4D6", color="#C55A11"];
+  start -> op;
+  op -> rep [label="falloMesaCada8h\n[habilitarFallas]\nt = 240 min\nfallosMesa++"];
+  rep -> op [label="finReparacionMesa\n[habilitarFallas]\nt = 255 min"];
+}

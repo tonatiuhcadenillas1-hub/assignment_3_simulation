@@ -1,0 +1,22 @@
+digraph G {
+  rankdir=LR; bgcolor=white; pad=0.3; nodesep=0.5; ranksep=0.5;
+  labelloc=t; fontname="DejaVu Sans"; fontsize=14;
+  label="Diagrama de estados - Entidad Placa (ciclo de vida)\n ";
+  node [fontname="DejaVu Sans", fontsize=11, shape=box, style="filled,rounded", fillcolor="#DDEBF7", color="#2F5597"];
+  edge [fontname="DejaVu Sans", fontsize=9];
+  start [shape=circle, label="", width=0.2, style=filled, fillcolor=black];
+  a [label="Creada\nhoraLlegada = time()\ntipoPlaca = Alta (25%) / Baja"];
+  b [label="Esperando\nensamblaje", fillcolor="#FFF2CC", color="#BF9000"];
+  c [label="En ensamblaje"];
+  d [label="Esperando\nprueba", fillcolor="#FFF2CC", color="#BF9000"];
+  e [label="En prueba\nde calidad"];
+  f [label="Terminada\n(sale del sistema)", fillcolor="#F8CBAD", color="#C55A11"];
+  end [shape=doublecircle, label="", width=0.15, style=filled, fillcolor=black];
+  start -> a [label="llegada"];
+  a -> b [label="entra a\nCola_Ensamblaje"];
+  b -> c [label="operario\nlibre"];
+  c -> d [label="fin ensamblaje\n(libera operario)"];
+  d -> e [label="mesa\nlibre"];
+  e -> f [label="fin prueba"];
+  f -> end [label="terminadas++"];
+}

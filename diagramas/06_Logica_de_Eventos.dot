@@ -1,0 +1,40 @@
+digraph G {
+  rankdir=TB; bgcolor=white; pad=0.3; nodesep=0.4; ranksep=0.35;
+  labelloc=t; fontname="DejaVu Sans"; fontsize=14;
+  label="Lógica de eventos del modelo final (PA3)\n ";
+  node [fontname="DejaVu Sans", fontsize=10, shape=box, style="filled,rounded", fillcolor="#DDEBF7", color="#2F5597"];
+  edge [fontname="DejaVu Sans", fontsize=9];
+  subgraph cluster_a { label="Llegada (Source - On exit)"; fontsize=11; color="#548235";
+    a1 [label="Nueva placa", shape=ellipse, fillcolor="#C6E0B4"];
+    a2 [label="horaLlegada = time()"];
+    a3 [label="uniform(0,1) < 0.25 ?", shape=diamond, fillcolor="#FFF2CC"];
+    a4 [label="tipoPlaca = \"Alta\"\nplacasAlta++"];
+    a5 [label="tipoPlaca = \"Baja\""];
+    a6 [label="totalLlegadas++"];
+    a1->a2->a3; a3->a4 [label="sí"]; a3->a5 [label="no"]; a4->a6; a5->a6;
+  }
+  subgraph cluster_b { label="Salida (Sink - On enter)"; fontsize=11; color="#C55A11";
+    b1 [label="Placa terminada", shape=ellipse, fillcolor="#F8CBAD"];
+    b2 [label="terminadas++"];
+    b3 [label="ciclo = time() - horaLlegada\ntiempoTotalSistema += ciclo"];
+    b4 [label="tiempoPromedioSistema =\ntiempoTotalSistema / terminadas"];
+    b5 [label="histTiempoSistema.add(ciclo)"];
+    b1->b2->b3->b4->b5;
+  }
+  subgraph cluster_c { label="Falla y reparación"; fontsize=11; color="#2F5597";
+    c1 [label="t = 240 min", shape=ellipse, fillcolor="#FCE4D6"];
+    c2 [label="habilitarFallas ?", shape=diamond, fillcolor="#FFF2CC"];
+    c3 [label="fallosMesa++\nmesaEnReparacion = true\nset_capacity(numMesas - 1)"];
+    c4 [label="t = 255 min", shape=ellipse, fillcolor="#FCE4D6"];
+    c5 [label="habilitarFallas ?", shape=diamond, fillcolor="#FFF2CC"];
+    c6 [label="set_capacity(numMesas)\nmesaEnReparacion = false"];
+    c1->c2; c2->c3 [label="sí"]; c3->c4 [style=dashed, label="15 min"]; c4->c5; c5->c6 [label="sí"];
+  }
+  subgraph cluster_d { label="Exportación (t = 480 min)"; fontsize=11; color="#595959";
+    d1 [label="t = 480 min", shape=ellipse, fillcolor="#EDEDED"];
+    d2 [label="tipoEstudio != 0 y\nexperimento Parameter Variation ?", shape=diamond, fillcolor="#FFF2CC"];
+    d3 [label="tipoEstudio == 1 ?\nresultados_matriz.csv :\nresultados_demanda.csv"];
+    d4 [label="Escribe 1 fila: iteración, réplica,\nparámetros y 12 indicadores"];
+    d1->d2; d2->d3 [label="sí"]; d3->d4;
+  }
+}

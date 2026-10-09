@@ -1,0 +1,7 @@
+parametro,agente,tipo,valor_por_defecto,descripcion
+numOperarios,Main,int,3,Capacidad del pool Operarios_Ensamblaje
+numMesas,Main,int,1,Capacidad del pool Mesa_Pruebas y referencia de los eventos de falla
+factorDemanda,Main,double,1.0,Multiplica la tasa de llegada (0.8 = -20 %; 1.2 = +20 %)
+habilitarFallas,Main,boolean,true,Activa los eventos de falla y reparacion
+tipoEstudio,Main,int,0,"Archivo de exportacion: 0 ninguno, 1 resultados_matriz.csv, 2 resultados_demanda.csv"
+escenarioOptimizado,Main,boolean,false,Solo cambia la etiqueta del escenario en el texto de resultados

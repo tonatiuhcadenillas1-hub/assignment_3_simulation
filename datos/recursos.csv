@@ -1,0 +1,3 @@
+recurso,bloque,tipo_anylogic,expresion_capacidad,rango_evaluado,usado_por
+Operarios de ensamblaje,Operarios_Ensamblaje,ResourcePool,numOperarios,2 a 4,tomarOperario (Seize) / liberarOperario (Release)
+Mesas de pruebas,Mesa_Pruebas,ResourcePool,numMesas (numMesas - 1 durante la falla),1 a 3,Pruebas_Calidad (Service)
